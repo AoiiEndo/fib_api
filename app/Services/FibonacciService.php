@@ -6,12 +6,6 @@ class FibonacciService
 {
     public function calculateFibonacci(int $n): string
     {
-        if ($n === 0) {
-            return '0';
-        } elseif ($n === 1) {
-            return '1';
-        }
-
         $a = '0';
         $b = '1';
 
