@@ -6,15 +6,17 @@ use Illuminate\Http\Middleware\TrustHosts as Middleware;
 
 class TrustHosts extends Middleware
 {
-    /**
-     * Get the host patterns that should be trusted.
-     *
-     * @return array<int, string|null>
-     */
-    public function hosts(): array
-    {
-        return [
-            $this->allSubdomainsOfApplicationUrl(),
-        ];
-    }
+    protected $proxies = '*';
+    protected $headers = \Illuminate\Http\Request::HEADER_X_FORWARDED_ALL;
+    // /**
+    //  * Get the host patterns that should be trusted.
+    //  *
+    //  * @return array<int, string|null>
+    //  */
+    // public function hosts(): array
+    // {
+    //     return [
+    //         $this->allSubdomainsOfApplicationUrl(),
+    //     ];
+    // }
 }
